@@ -7,17 +7,13 @@ export MINICONDA="$HOME/miniconda"
 export MINICONDA_BIN_LOCATION="$MINICONDA/bin"
 export PATH="$MINICONDA_BIN_LOCATION:$PATH"
 
-# Update system packages 
+# Update system packages
 sudo apt-get update && sudo apt-get install -y git && sudo apt-get install -y wget && sudo apt-get clean
 
 #Install python
 sudo apt install python3
 
-if [[ "$PYTHON_VERSION" == "2.7" ]]; then
-wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
-else
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
-fi
 bash miniconda.sh -b -p $MINICONDA
 
 #Set conda for autoinstalls and update conda
@@ -36,7 +32,7 @@ conda config --add channels bioconda
 
 # Install software using miniconda
 # Core tools
-#conda install samtools=1.10
+conda install samtools
 conda install bcftools
 conda install bedtools
 conda install igv
@@ -46,7 +42,7 @@ conda install picard
 conda install bwa
 # SV module
 conda install breakdancer
-#conda install lumpy-sv
+conda install gridss
 conda install minimap2
 conda install sniffles
 # RNA-Seq module
@@ -74,9 +70,6 @@ conda install gatk4
 wget https://raw.githubusercontent.com/schatzlab/genomescope/d2aefddd32ce48aa1144d9fbd80ed6b37785cd8d/genomescope.R
 mv genomescope.R $MINICONDA_BIN_LOCATION
 chmod 754 $MINICONDA_BIN_LOCATION/genomescope.R
-
-#Install last to see if resolves issue with latest version
-conda install samtools=1.10
 
 # Install the course modules from github
 cd /home/manager
