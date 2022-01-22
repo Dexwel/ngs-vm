@@ -62,14 +62,10 @@ conda install kmer-jellyfish
 conda install seqtk
 conda install velvet
 conda install wtdbg
+conda install genomescope2
 # Group projects
 conda install freebayes
 conda install gatk4
-
-#Install genomescope.R (not available via bioconda)
-wget https://raw.githubusercontent.com/schatzlab/genomescope/d2aefddd32ce48aa1144d9fbd80ed6b37785cd8d/genomescope.R
-mv genomescope.R $MINICONDA_BIN_LOCATION
-chmod 754 $MINICONDA_BIN_LOCATION/genomescope.R
 
 # Install the course modules from github
 cd /home/manager
